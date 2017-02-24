@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Plan</title>
+	{% include './cdn.html' %}
+</head>
+
+<body>
+<div class="container">
+	<h1>Add a Trip!</h1>
+	<div class="row">
+		<div class="col-md-5">
+			<form action="/success" method="post">
+				{% csrf_token %}
+				<div class="form-group">
+					<label for="name">Destination:</label>
+					<input type="text" name="name" class="form-control" {% if messages %} {% for message in messages %} {% if message.extra_tags == "name" %} value = "{{message}}" {% endif %} {% endfor %} {% endif %}/>
+				</div>
+				<div class="form-group">
+					<label for="email">Description:</label>
+					<input type="text" name="email" class="form-control"  {% if messages %} {% for message in messages %} {% if message.extra_tags == "email" %} value = "{{message}}" {% endif %} {% endfor %} {% endif %}/>
+				</div>
+				<div class="form-group">
+					<label for="email">Travel Date From:</label>
+					<input type="text" name="email" class="form-control" placeholder="mm/dd/yyyy" {% if messages %} {% for message in messages %} {% if message.extra_tags == "email" %} value = "{{message}}" {% endif %} {% endfor %} {% endif %}/>
+				</div>
+				<div class="form-group">
+					<label for="email">Travel Date To:</label>
+					<input type="text" name="email" class="form-control" placeholder="mm/dd/yyyy" {% if messages %} {% for message in messages %} {% if message.extra_tags == "email" %} value = "{{message}}" {% endif %} {% endfor %} {% endif %}/>
+				</div>
+				<button type="submit" class="btn btn-success">Add Travel Plan</button>
+			</form>
+		</div>
+	</div>
+</div>
+</body>
+
+</html>
